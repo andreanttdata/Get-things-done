@@ -1,18 +1,33 @@
 import React from "react";
-import Container from "@material-ui/core/Container";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import MainList from "./Components/MainList";
+import { Grid } from "@material-ui/core";
+import SunIcon from "@material-ui/icons/WbSunnyOutlined";
+import StarBorder from "@material-ui/icons/StarBorder";
+
+import UserGeneratedListContainer from "./Components/UserGeneratedListContainer";
+import HeaderBar from "./Components/HeaderBar";
+import LinkWithIcon from "./Components/LinkWithIcon";
 
 export default function App() {
   return (
-    <Container maxWidth="sm">
-      <Box my={4}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Create React App v4-beta example
-        </Typography>
-      </Box>
-      <MainList />
-    </Container>
+    <>
+      <HeaderBar />
+      <Grid container justify="space-between" alignItems="center">
+        <Grid item xs={4}>
+          <LinkWithIcon text="Today" icon={<SunIcon />} href="/today" />
+        </Grid>
+        <Grid item xs={2}>
+          N
+        </Grid>
+      </Grid>
+      <Grid container justify="space-between" alignItems="center">
+        <Grid item xs={4}>
+          <LinkWithIcon text="Important" icon={<StarBorder />} href="/today" />
+        </Grid>
+        <Grid item xs={2}>
+          N
+        </Grid>
+      </Grid>
+      <UserGeneratedListContainer />
+    </>
   );
 }

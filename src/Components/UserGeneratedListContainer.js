@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 //import styled from "@emotion/styled";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
+import UserGeneratedList from "./UserGeneratedList";
+
 const initial = Array.from({ length: 10 }, (v, k) => k).map(k => {
   const custom = {
     id: `id-${k}`,
@@ -46,12 +48,12 @@ function Quote({ quote, index }) {
 }
 
 const QuoteList = React.memo(function QuoteList({ quotes }) {
-  return quotes.map((quote: QuoteType, index: number) => (
+  return quotes.map((quote, index) => (
     <Quote quote={quote} index={index} key={quote.id} />
   ));
 });
 
-function MainList() {
+function UserGeneratedListContainer() {
   const [state, setState] = useState({ quotes: initial });
 
   function onDragEnd(result) {
@@ -86,4 +88,4 @@ function MainList() {
   );
 }
 
-export default MainList;
+export default UserGeneratedListContainer;
