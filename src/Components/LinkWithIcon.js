@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
-import { Link as RouterLink, BrowserRouter as Router } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -10,9 +10,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const ComponentToGo = React.forwardRef((props, ref) => (
-  // <Router>
   <RouterLink innerRef={ref} {...props} />
-  // </Router>
 ));
 
 function LinkWithIcon({ text, href, icon }) {
